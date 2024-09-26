@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - IIUC Computer Club Voting System{% endblock %}
+
+{% block content %}
+    {% if username %}
+        <div class="card">
+            <div class="card-body">
+                <h1 class="text-success mb-4">Welcome, {{ username }}!</h1>
+                <form action="{{ url_for('vote') }}" method="post">
+                    <div class="mb-3">
+                        <h4>Vote for General Secretary (GS):</h4>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="gs_vote" value="X" id="gs_candidate_X">
+                            <label class="form-check-label" for="gs_candidate_X">Candidate X</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="gs_vote" value="Y" id="gs_candidate_Y">
+                            <label class="form-check-label" for="gs_candidate_Y">Candidate Y</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="gs_vote" value="Z" id="gs_candidate_Z">
+                            <label class="form-check-label" for="gs_candidate_Z">Candidate Z</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <h4>Vote for Assistant General Secretary 1 (AGS1):</h4>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="ags1_vote" value="A" id="ags1_candidate_A">
+                            <label class="form-check-label" for="ags1_candidate_A">Candidate A</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="ags1_vote" value="B" id="ags1_candidate_B">
+                            <label class="form-check-label" for="ags1_candidate_B">Candidate B</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="ags1_vote" value="C" id="ags1_candidate_C">
+                            <label class="form-check-label" for="ags1_candidate_C">Candidate C</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <h4>Vote for Assistant General Secretary 2 (AGS2):</h4>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="ags2_vote" value="D" id="ags2_candidate_D">
+                            <label class="form-check-label" for="ags2_candidate_D">Candidate D</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="ags2_vote" value="E" id="ags2_candidate_E">
+                            <label class="form-check-label" for="ags2_candidate_E">Candidate E</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="ags2_vote" value="F" id="ags2_candidate_F">
+                            <label class="form-check-label" for="ags2_candidate_F">Candidate F</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success">Vote</button>
+                </form>
+                <a href="{{ url_for('logout') }}" class="btn btn-link">Logout</a>
+            </div>
+        </div>
+    {% else %}
+        <div class="card">
+            <div class="card-body">
+                <p class="text-muted">Please login to vote.</p>
+                <a href="{{ url_for('login') }}" class="btn btn-primary">Login</a>
+                <a href="{{ url_for('register') }}" class="btn btn-link">Register</a>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

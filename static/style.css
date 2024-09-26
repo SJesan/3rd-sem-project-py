@@ -1,0 +1,8 @@
+body {
+    padding-top: 4rem;
+}
+
+.card {
+    max-width: 400px;
+    margin: auto;
+}

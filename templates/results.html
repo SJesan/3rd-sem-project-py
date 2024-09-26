@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Voting Results - IIUC Computer Club Voting System{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-body">
+            <h2>Voting Results</h2>
+            <h3>General Secretary (GS)</h3>
+            <ul>
+                {% for candidate, votes in gs_votes.items() %}
+                    <li>{{ candidate }}: {{ votes }}</li>
+                {% endfor %}
+            </ul>
+            <h3>Assistant General Secretary 1 (AGS1)</h3>
+            <ul>
+                {% for candidate, votes in ags1_votes.items() %}
+                    <li>{{ candidate }}: {{ votes }}</li>
+                {% endfor %}
+            </ul>
+            <h3>Assistant General Secretary 2 (AGS2)</h3>
+            <ul>
+                {% for candidate, votes in ags2_votes.items() %}
+                    <li>{{ candidate }}: {{ votes }}</li>
+                {% endfor %}
+            </ul>
+            <a href="{{ url_for('logout') }}" class="btn btn-link">Logout</a>
+        </div>
+    </div>
+{% endblock %}
